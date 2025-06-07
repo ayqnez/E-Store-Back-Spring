@@ -25,4 +25,6 @@ public class CartItem {
     private Product product;
 
     private Integer quantity;
+    private String selectedMemory;
+    private Double price;
 }

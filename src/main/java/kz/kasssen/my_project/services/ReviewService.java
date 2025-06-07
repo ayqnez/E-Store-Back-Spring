@@ -23,7 +23,7 @@ public class ReviewService {
     private final UserRepository userRepository;
 
     public void addReview(String username, Long productId, String content, int rating) {
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User Not Found"));
         Product product = productRepository.findById(productId).orElseThrow();
 
         Review review = new Review();
@@ -41,7 +41,7 @@ public class ReviewService {
         List<Review> reviews = reviewRepository.findByProductId(productId);
 
         return reviews.stream().map(review -> {
-            User user = userRepository.findByUsername(review.getUser().getUsername());
+            User user = userRepository.findByUsername(review.getUser().getUsername()).orElseThrow(() -> new RuntimeException("User Not Found"));
             return new ReviewResponseDTO(
                     user.getUsername(),
                     review.getRating(),

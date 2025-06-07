@@ -20,7 +20,7 @@ public class FavoriteService {
     private final ProductRepository productRepository;
 
     public void toggleFavorite(String username, Long productId, boolean isFavorite) {
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User Not Found"));
         Product product = productRepository.findById(productId).orElseThrow();
 
         Favorite favorite = favoriteRepository.findByUserAndProduct(user, product);
@@ -36,7 +36,7 @@ public class FavoriteService {
     }
 
     public List<Product> getUserFavorites(String username) {
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User Not Found"));
         return favoriteRepository.findAllByUserAndIsFavoriteTrue(user)
                 .stream()
                 .map(Favorite::getProduct)

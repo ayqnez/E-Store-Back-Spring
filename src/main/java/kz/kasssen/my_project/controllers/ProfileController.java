@@ -19,7 +19,7 @@ public class ProfileController {
     @GetMapping()
     public ResponseEntity<UserDTO> getProfile(Authentication auth) {
         String username = auth.getName();
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User Not Found"));
 
         UserDTO userDTO = new UserDTO(user.getId(), user.getUsername(), user.getEmail(), user.getRole());
         return ResponseEntity.ok(userDTO);
