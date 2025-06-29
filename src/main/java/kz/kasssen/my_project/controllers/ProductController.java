@@ -33,7 +33,7 @@ public class ProductController {
     @PostMapping()
     public ResponseEntity<?> createProduct(@RequestBody Product product) {
         productService.create(product);
-        return ResponseEntity.status(201).build();
+        return ResponseEntity.ok("Product added");
     }
 
     @GetMapping("/{productId}")

@@ -16,17 +16,16 @@ public class FavoriteController {
 
     private final FavoriteService favoriteService;
 
+    @GetMapping()
+    public ResponseEntity<List<Product>> getFavorites(Authentication auth) {
+        return ResponseEntity.ok(favoriteService.getUserFavorites(auth.getName()));
+    }
+
     @PostMapping("/{productId}")
     public ResponseEntity<?> addFavorite(@PathVariable Long productId,
                                          @RequestParam boolean favorite,
                                          Authentication auth) {
         favoriteService.toggleFavorite(auth.getName(), productId, favorite);
         return ResponseEntity.ok("Favorite added");
-    }   
-
-    @GetMapping
-    public ResponseEntity<List<Product>> getFavorites(Authentication auth) {
-        return ResponseEntity.ok(favoriteService.getUserFavorites(auth.getName()));
     }
-
 }

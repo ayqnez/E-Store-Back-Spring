@@ -1,7 +1,6 @@
 package kz.kasssen.my_project.controllers;
 
 import kz.kasssen.my_project.DTOs.CartItemDTO;
-import kz.kasssen.my_project.entity.Product;
 import kz.kasssen.my_project.services.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
