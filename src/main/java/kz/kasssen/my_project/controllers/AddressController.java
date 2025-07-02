@@ -16,7 +16,7 @@ public class AddressController {
 
     private final AddressService addressService;
 
-    @GetMapping("/all")
+    @GetMapping()
     public ResponseEntity<List<Address>> getAddresses(Authentication auth) {
         return ResponseEntity.ok(addressService.getUserAddress(auth.getName()));
     }

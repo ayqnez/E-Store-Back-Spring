@@ -28,19 +28,26 @@ public class Product {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    private String imageUrl; // основное изображение
-
-    private String largeImageUrl; // маленькие изображения
+    private String imageUrl;
+    private String largeImageUrl;
 
     private Integer stock;
 
-    private String screenSize;      // размер экрана
-    private String cpu;             // процессор
-    private Integer numberOfCores;  // количество ядер
-    private String mainCamera;      // основная камера
-    private String frontCamera;     // фронтальная камера
-    private Integer batteryCapacity; // ёмкость батареи (mAh)
+    private String screenSize;
+    private String cpu;
+    private Integer numberOfCores;
+    private String mainCamera;
+    private String frontCamera;
+    private Integer batteryCapacity;
 
     @ElementCollection
-    private List<String> memory; // доступные варианты памяти (128GB, 256GB, ...)
+    private List<String> memory;
+
+    // === Apple Watch / Smartwatch-specific fields ===
+    private String caseSize;
+    private String strapMaterial;
+    private Boolean hasCellular;
+    private Boolean waterResistant;
+    private Boolean gpsEnabled;
+    private Integer batteryLife;
 }
