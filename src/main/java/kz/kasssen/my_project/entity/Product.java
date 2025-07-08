@@ -33,15 +33,27 @@ public class Product {
 
     private Integer stock;
 
+    // Phones
     private String screenSize;
+    private String screenType;
+    private String screenResolution;
+    private Integer screenRefreshRate;
+    private Integer pixelDensity;
+
     private String cpu;
     private Integer numberOfCores;
+    private Integer RAM;
+
     private String mainCamera;
     private String frontCamera;
+
     private Integer batteryCapacity;
+    private Boolean wirelessCharging;
+    private Boolean fastCharging;
 
     @ElementCollection
     private List<String> memory;
+
 
     // === Apple Watch / Smartwatch-specific fields ===
     private String caseSize;
@@ -49,5 +61,14 @@ public class Product {
     private Boolean hasCellular;
     private Boolean waterResistant;
     private Boolean gpsEnabled;
+
+
+    // === Наушники/Headphones-specific fields ===
+    private String headphoneType; // "In-ear", "On-ear", "Over-ear" - тип конструкции
+    private String connectionType; // "Wired", "Wireless", "Bluetooth" - способ подключения
+    private Boolean noiseCancellation; // наличие активного шумоподавления (true/false)
+    private String waterproofRating; // степень защиты (IPX4, IPX7 и т.д.)
+    private String microphone; // "Built-in", "Detachable", "None" - наличие микрофона
+
     private Integer batteryLife;
 }
