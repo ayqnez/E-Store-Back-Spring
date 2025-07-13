@@ -33,6 +33,10 @@ public class Product {
 
     private Integer stock;
 
+    private Boolean isNewArrival;
+    private Boolean isBestseller;
+    private Boolean isFeatured;
+
     // Phones
     private String screenSize;
     private String screenType;
